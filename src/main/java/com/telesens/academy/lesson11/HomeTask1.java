@@ -1,6 +1,8 @@
 package com.telesens.academy.lesson11;
 
 
+import com.telesens.academy.lesson12.ComparatorByFirstAndLastNamesImpl;
+
 import java.io.IOException;
 
 public class HomeTask1 {
@@ -9,16 +11,16 @@ public class HomeTask1 {
     public static void main(String[] args) {
         ReadPropFile readPropFile = null;
 
-        try {
-            readPropFile = new ReadPropFile(PROP_FILE_PATH);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        readPropFile = new ReadPropFile(PROP_FILE_PATH);
 
         NamesCollections namesCollections = new NamesCollections(readPropFile);
 
         SubscriberConstructor subscriberConstructor = new SubscriberConstructor(namesCollections, 200, namesCollections.getMinimalAge(), namesCollections.getMaximalAge());
 
+        subscriberConstructor.sort(new ComparatorByFirstAndLastNamesImpl());
+
+
+        System.out.println("compare");
         ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable(readPropFile.getPath_xlsx(), 200, subscriberConstructor.getArrayListSubsExt());
 
         ReadSubscriberExcelToMap mapSubscriber = new ReadSubscriberExcelToMap(readPropFile);
