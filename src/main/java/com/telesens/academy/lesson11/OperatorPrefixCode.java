@@ -77,8 +77,7 @@ public class OperatorPrefixCode {
             default:
                 System.out.println("shit");
         }
-
-        System.out.println("oer prefix+name" + this.prefixCode + " " + this.operName);
+        //System.out.println("oer prefix+name" + this.prefixCode + " " + this.operName);
         return;
     }
 

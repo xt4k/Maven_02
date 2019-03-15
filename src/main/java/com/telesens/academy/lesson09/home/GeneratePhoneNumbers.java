@@ -13,7 +13,7 @@ public class GeneratePhoneNumbers {
         String strRandom = String.valueOf(randomNum);
         while (strRandom.length()<7) {
             strRandom="0"+strRandom;
-            System.out.println("strRandom "+strRandom);
+            //System.out.println("strRandom "+strRandom);
         }
 
         bIntRandom = new BigInteger(countryCode+operPrefix+strRandom);
