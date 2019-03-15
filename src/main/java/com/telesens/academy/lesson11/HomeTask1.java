@@ -1,12 +1,8 @@
 package com.telesens.academy.lesson11;
 
 
-import com.telesens.academy.lesson12.ComparatorByFirstAndLastNamesImpl;
-
-import java.io.IOException;
-
 public class HomeTask1 {
-    static String PROP_FILE_PATH = "d:/KypcbI/QA_JA/lesson11/java-part.properties";
+    static String PROP_FILE_PATH = "f:/KypcbI/QA_JA/lesson11/java-part.properties";
 
     public static void main(String[] args) {
         ReadPropFile readPropFile = null;
@@ -17,7 +13,7 @@ public class HomeTask1 {
 
         SubscriberConstructor subscriberConstructor = new SubscriberConstructor(namesCollections, 200, namesCollections.getMinimalAge(), namesCollections.getMaximalAge());
 
-        subscriberConstructor.sort(new ComparatorByFirstAndLastNamesImpl());
+        // subscriberConstructor.sort(new ComparatorByFirstAndLastNamesImpl());
 
 
         System.out.println("compare");
@@ -49,5 +45,7 @@ public class HomeTask1 {
 //                - наличие в zip архиве файлов:
 //        'subscribers.xlsx'
 //        'subscribers.txt'
+
+
     }
 }
