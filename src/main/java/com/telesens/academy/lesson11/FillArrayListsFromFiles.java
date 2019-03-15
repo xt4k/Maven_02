@@ -11,10 +11,10 @@ public class FillArrayListsFromFiles {
     public FillArrayListsFromFiles(String s) {
         ArrayList arrayList = new ArrayList();
         try {
-            BufferedReader br = new BufferedReader( new FileReader( s ) );
+            BufferedReader br = new BufferedReader(new FileReader(s));
             String line;
             while ((line = br.readLine()) != null)
-                arrayList.add( line );
+                arrayList.add(line);
             br.close();
         } catch (IOException e) {
             e.printStackTrace();

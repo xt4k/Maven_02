@@ -7,12 +7,12 @@ public class ExceededArrayBoundException extends Exception {
         this.details = "no details";
     }
 
-    public String getDetails() {
-        return details;
+    public ExceededArrayBoundException(String details, int i) {
+        this.details = i + "-th " + details;
     }
 
-    public ExceededArrayBoundException(String details, int i) {
-        this.details = i +"-th "+ details;
+    public String getDetails() {
+        return details;
     }
 
     public void setDetails(String details) {

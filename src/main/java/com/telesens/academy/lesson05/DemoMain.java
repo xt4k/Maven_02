@@ -14,6 +14,6 @@ public class DemoMain {
         Date date = new Date();
         System.out.println("default Date is: " + date.getDate());
 
-        CheckDayTime checkDayTime= new CheckDayTime(date);
+        CheckDayTime checkDayTime = new CheckDayTime(date);
     }
 }

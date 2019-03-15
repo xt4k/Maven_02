@@ -6,19 +6,19 @@ public enum Season {
     SUMMER,
     AUTUMN;
 
-    String getCurrentSeason () {
+    String getCurrentSeason() {
         return this.name();
     }
 
     Season getPrevSeason(int seasonNum) {
-        if (seasonNum>0)
-            return values()[ordinal()-1];
+        if (seasonNum > 0)
+            return values()[ordinal() - 1];
         else return values()[3];
     }
 
     Season getNextSeason(int seasonNum) {
-        if (seasonNum<3)
-            return values()[ordinal()+1];
+        if (seasonNum < 3)
+            return values()[ordinal() + 1];
         else return values()[0];
     }
 

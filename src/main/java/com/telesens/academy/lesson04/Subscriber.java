@@ -1,4 +1,5 @@
 package com.telesens.academy.lesson04;
+
 import java.util.Objects;
 
 public class Subscriber { //String abonentRawString = " helen iVanova 35 f 0501234567";
@@ -23,12 +24,20 @@ public class Subscriber { //String abonentRawString = " helen iVanova 35 f 05012
 
     }
 
-    public void setfName(String fName) {
+    public Subscriber(String fName, String pNumber, String lName, int age, char gender) {
         this.fName = fName;
+        this.pNumber = pNumber;
+        this.lName = lName;
+        this.age = age;
+        this.gender = gender;
     }
 
     public String getfName() {
         return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
     }
 
     public String getpNumber() {
@@ -80,13 +89,5 @@ public class Subscriber { //String abonentRawString = " helen iVanova 35 f 05012
     public int hashCode() {
 
         return Objects.hash(lName);
-    }
-
-    public Subscriber(String fName, String pNumber, String lName, int age, char gender) {
-        this.fName = fName;
-        this.pNumber = pNumber;
-        this.lName = lName;
-        this.age = age;
-        this.gender = gender;
     }
 }

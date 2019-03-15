@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class GenArrayTests {
 
-    public static void main(String[] args)  throws java.lang.ArrayIndexOutOfBoundsException {
+    public static void main(String[] args) throws java.lang.ArrayIndexOutOfBoundsException {
 
         int size = 10;
         Random random = new Random();
@@ -37,10 +37,10 @@ public class GenArrayTests {
         System.out.println(String.format("Array of Object. %s", genArrayObj.toString()));
         System.out.println("----");
 
-  for (int i = 0; i < arrString.length; i++) {
+        for (int i = 0; i < arrString.length; i++) {
 
             genArrayInt.set(i, arrIntSet[i]);
-            genArrayStr.set(i,arrStringSet[i]);
+            genArrayStr.set(i, arrStringSet[i]);
             genArrayObj.setArray(arrObjSet);
         }
         System.out.println(String.format("Array2 of Integer: %s", genArrayInt.toString()));
@@ -56,12 +56,9 @@ public class GenArrayTests {
         System.out.println("-=|=-");
 
 
-
-            //genArrayInt.get(10);
-            // genArrayInt.get(-1);
-           // genArrayInt.set(2, arrIntSet[16]);
-
-
+        //genArrayInt.get(10);
+        // genArrayInt.get(-1);
+        // genArrayInt.set(2, arrIntSet[16]);
 
 
     }

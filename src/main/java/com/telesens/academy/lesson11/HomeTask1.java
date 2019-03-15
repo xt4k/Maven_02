@@ -4,40 +4,28 @@ package com.telesens.academy.lesson11;
 import java.io.IOException;
 
 public class HomeTask1 {
-    static String PROP_FILE_PATH = "f:/KypcbI/QA_JA/lesson11/java-part.properties";
+    static String PROP_FILE_PATH = "d:/KypcbI/QA_JA/lesson11/java-part.properties";
 
     public static void main(String[] args) {
         ReadPropFile readPropFile = null;
 
         try {
-            readPropFile = new ReadPropFile( PROP_FILE_PATH );
+            readPropFile = new ReadPropFile(PROP_FILE_PATH);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        FillArrayListsFromFiles arrayListMaleFirstNames = new FillArrayListsFromFiles( readPropFile.getPathM_FirstNames() );
-        FillArrayListsFromFiles arrayListMaleLastNames = new FillArrayListsFromFiles( readPropFile.getPathM_LastNames() );
-        FillArrayListsFromFiles arrayListFemaleFirstNames = new FillArrayListsFromFiles( readPropFile.getPathF_FirstNames() );
-        FillArrayListsFromFiles arrayListFemaleLastNames = new FillArrayListsFromFiles( readPropFile.getPathF_LastNames() );
-        int minimalAge = readPropFile.getAgeFrom();
-        int maximalAge = readPropFile.getAgeTo();
 
-        NamesCollections namesCollections = new NamesCollections(
-                arrayListMaleFirstNames.getArrayList(),
-                arrayListMaleLastNames.getArrayList(),
-                arrayListFemaleFirstNames.getArrayList(),
-                arrayListFemaleLastNames.getArrayList() );
+        NamesCollections namesCollections = new NamesCollections(readPropFile);
 
-        SubscriberConstructor subscriberConstructor = new SubscriberConstructor(namesCollections,200 ,minimalAge,maximalAge);
+        SubscriberConstructor subscriberConstructor = new SubscriberConstructor(namesCollections, 200, namesCollections.getMinimalAge(), namesCollections.getMaximalAge());
+
         ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable(readPropFile.getPath_xlsx(), 200, subscriberConstructor.getArrayListSubsExt());
 
-        System.out.println( "++" );
+        ReadSubscriberExcelToMap mapSubscriber = new ReadSubscriberExcelToMap(readPropFile);
 
-//        Результат subscribers.xlsx должен выглядеть так:
-//        1 | Васильев  | Иван | м | 23 | 380630025465 | Life
-//        2 | Петрова   | Катя | ж | 34 | 380670058694 | Kievstar
-//		...
-//        2000 | Борисов   | Коля | м | 48 | 380500025465 | Vodafone
-//        Всего 200 случайных строк
+        System.out.println("++");
+
+
 //        d) Прочитать subscribers.xlsx в коллекцию Map<Long, Subscriber> и сохранить в текстовый файл: subscribers.txt
 //                (путь к файлу взять из 'java-part.properties')
 //        e) Прочитать subscribers.xlsx в коллекцию List<Subscriber> отсортировать сразу по 4 полям:
@@ -59,7 +47,5 @@ public class HomeTask1 {
 //                - наличие в zip архиве файлов:
 //        'subscribers.xlsx'
 //        'subscribers.txt'
-
-
     }
 }

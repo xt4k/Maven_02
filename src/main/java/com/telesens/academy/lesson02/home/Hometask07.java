@@ -12,12 +12,10 @@ public class Hometask07 {
         System.out.print("input second variable (int w): ");
         int w = scanner.nextInt(); // чтение int числа
         System.out.println();
-        System.out.println(String.format("q = %d, w = %d,  q/w = %d.", q, w, q/w));
-        System.out.print(String.format("q = %d, w = %d,  q%%w = %d ", q, w, q%w));
+        System.out.println(String.format("q = %d, w = %d,  q/w = %d.", q, w, q / w));
+        System.out.print(String.format("q = %d, w = %d,  q%%w = %d ", q, w, q % w));
         System.out.println();
     }
-
-
 
 
 }

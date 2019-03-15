@@ -11,27 +11,27 @@ public class HomeTask12 {
         int rhombusSize = scanner.nextInt(); // чтение int числа
 
         //rString = rString+ String.valueOf(3);
-       // System.out.println("rString = " + rString);
+        // System.out.println("rString = " + rString);
 
-        for (int i=1; i<= rhombusSize*2-1;i++) {
-            String rString="";
+        for (int i = 1; i <= rhombusSize * 2 - 1; i++) {
+            String rString = "";
             if (i < rhombusSize) {
-                for (int j=1;j == rhombusSize;j++)
-                           rString = rString + String.valueOf(j);
+                for (int j = 1; j == rhombusSize; j++)
+                    rString = rString + String.valueOf(j);
                 if (i > rhombusSize)
-                    for (int j=rhombusSize;j==1;j--) {
-                        System.out.println("j= "+j+" i= "+i);
+                    for (int j = rhombusSize; j == 1; j--) {
+                        System.out.println("j= " + j + " i= " + i);
                         rString = rString + String.valueOf(i - (j - i));
                     }
             }
             System.out.println("rString = " + rString);
 
-           // for (int i = rhombusSize; i <= 1; i--) System.out.print(i);
+            // for (int i = rhombusSize; i <= 1; i--) System.out.print(i);
 
             System.out.println();
         }
         System.out.println("The End.");
-        }
-
-
     }
+
+
+}

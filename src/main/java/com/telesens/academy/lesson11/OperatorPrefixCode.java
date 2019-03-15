@@ -17,9 +17,9 @@ public class OperatorPrefixCode {
     public void setRandom() {
         int operCount = 13;
         Random random = new Random();
-        int operatorNum = (int) Math.round( Math.abs( random.nextGaussian() * (operCount + 1) / 2 ) );
+        int operatorNum = (int) Math.round(Math.abs(random.nextGaussian() * (operCount + 1) / 2));
         while ((operatorNum > operCount) | (operatorNum <= 0))
-            operatorNum = (int) Math.round( Math.abs( random.nextGaussian() * (operCount + 1) / 2 ) );
+            operatorNum = (int) Math.round(Math.abs(random.nextGaussian() * (operCount + 1) / 2));
 
         switch (operatorNum) {
             case (1):

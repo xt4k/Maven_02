@@ -16,9 +16,9 @@ public class ComparatorByAgeImpl implements Comparator<SubscriberExt> {
         else return 0;*/
 
 
-        //2 scenario
-        @Override
-        public int compare (SubscriberExt o1, SubscriberExt o2){
-          return Integer.compare(o1.getAge(),o2.getAge());
-        }
+    //2 scenario
+    @Override
+    public int compare(SubscriberExt o1, SubscriberExt o2) {
+        return Integer.compare(o1.getAge(), o2.getAge());
     }
+}

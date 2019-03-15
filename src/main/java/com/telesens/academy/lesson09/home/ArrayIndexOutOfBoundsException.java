@@ -7,13 +7,13 @@ public class ArrayIndexOutOfBoundsException extends ExceededArrayBoundException 
         this.details = "no details";
     }
 
-    public String getDetails() {
-        return details;
+    public ArrayIndexOutOfBoundsException(String details, int i) {
+        this.details = i + "-th is a " + details;
+        System.out.println(this.details);
     }
 
-    public ArrayIndexOutOfBoundsException(String details, int i) {
-        this.details = i +"-th is a "+ details;
-        System.out.println(this.details);
+    public String getDetails() {
+        return details;
     }
 
     public void setDetails(String details) {

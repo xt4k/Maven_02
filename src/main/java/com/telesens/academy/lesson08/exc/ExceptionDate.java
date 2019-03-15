@@ -12,7 +12,7 @@ public class ExceptionDate {
         System.out.println("-----------");
         System.out.println("Current Date is: " + date3.getDate());
         System.out.println("Тест работы конструктора классa Date c выбрасываниeм исключения IllegalDateException");
-         System.out.println("positive scenario (тест работы конструктора на позитивных кейсах)");
+        System.out.println("positive scenario (тест работы конструктора на позитивных кейсах)");
 
         System.out.println("check Date(11,12,2011)" + date3.checkData(new Date(11, 12, 2011)));
         System.out.println("check Date(17, 2, 2019)" + date3.checkData(new Date(17, 2, 2019)));

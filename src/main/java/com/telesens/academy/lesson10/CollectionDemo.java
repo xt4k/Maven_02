@@ -1,9 +1,5 @@
 package com.telesens.academy.lesson10;
 
-import com.telesens.academy.lesson08.exc.FullAbonParse;
-import com.telesens.academy.lesson09.home.GenArray;
-import com.telesens.academy.lesson08.exc.FullAbonParse;
-import com.telesens.academy.lesson09.home.GenArray;
 import com.telesens.academy.lesson04.Subscriber;
 import com.telesens.academy.lesson08.exc.FullAbonParse;
 import com.telesens.academy.lesson09.home.GenArray;
@@ -38,7 +34,7 @@ public class CollectionDemo {
         List<Subscriber> abonentList = new ArrayList<>(Arrays.asList(abonentArray));
         System.out.println(abonentList);
 
-        List <Subscriber> abonentList2 = new ArrayList<>(Arrays.asList(abonentArray2));
+        List<Subscriber> abonentList2 = new ArrayList<>(Arrays.asList(abonentArray2));
 
         System.out.println(abonentList.equals(abonentList2));
         assert abonentList.equals(abonentList2);
@@ -47,8 +43,8 @@ public class CollectionDemo {
         //Collections.sort(abonentList2);
 
         System.out.println("===list===");
-        Set <Subscriber> abonSet = new HashSet<>( abonentList );
-        Set <Subscriber> abonSet2 = new HashSet<>( abonentList2 );
+        Set<Subscriber> abonSet = new HashSet<>(abonentList);
+        Set<Subscriber> abonSet2 = new HashSet<>(abonentList2);
         System.out.println(abonSet.equals(abonSet2));
 
         System.out.println("======= The_End. ========");

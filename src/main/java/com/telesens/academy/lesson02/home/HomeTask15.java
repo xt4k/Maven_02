@@ -7,30 +7,30 @@ public class HomeTask15 {
 
         System.out.print("input square size (int): ");
         Scanner scanner = new Scanner(System.in);
-        int squareSize= scanner.nextInt(); // чтение int числа
+        int squareSize = scanner.nextInt(); // чтение int числа
 
-        for (int i=1; i<=squareSize;i++) {
-            if (i==1) {
+        for (int i = 1; i <= squareSize; i++) {
+            if (i == 1) {
                 for (int k = 1; k <= squareSize; k++)
                     System.out.print("*");
                 System.out.println();
             }
-            if (i==squareSize) {
+            if (i == squareSize) {
                 for (int k = 1; k <= squareSize; k++)
                     System.out.print("*");
                 System.out.println();
             }
-            if ((i!=1)&(i!=squareSize))            {
-                for (int k=1; k<squareSize;k++) {
+            if ((i != 1) & (i != squareSize)) {
+                for (int k = 1; k < squareSize; k++) {
                     if (k == 1) System.out.print("*");
-                    if (k == squareSize-1) System.out.print("*");
-                      else System.out.print(" ");
-                    }
-                    System.out.println();
+                    if (k == squareSize - 1) System.out.print("*");
+                    else System.out.print(" ");
+                }
+                System.out.println();
 
             }
-         }
-            System.out.println();
-
         }
+        System.out.println();
+
     }
+}

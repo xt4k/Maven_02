@@ -3,21 +3,36 @@ package com.telesens.academy.lesson11;
 import java.util.ArrayList;
 
 public class NamesCollections {
-  private ArrayList aListMaleFirstName;
-  private ArrayList aListMaleLastNames;
-  private ArrayList aListFemaleFirstNames;
-  private ArrayList aListFemaleLastNames;
+    private ArrayList aListMaleFirstName;
+    private ArrayList aListMaleLastNames;
+    private ArrayList aListFemaleFirstNames;
+    private ArrayList aListFemaleLastNames;
+    private int minimalAge;
+    private int maximalAge;
 
+    public NamesCollections(ReadPropFile file) {
+        FillArrayListsFromFiles aListMaleFirstName = new FillArrayListsFromFiles(file.getPathM_FirstNames());
+        FillArrayListsFromFiles aListMaleLastNames = new FillArrayListsFromFiles(file.getPathM_LastNames());
+        FillArrayListsFromFiles aListFemaleFirstNames = new FillArrayListsFromFiles(file.getPathF_FirstNames());
+        FillArrayListsFromFiles aListFemaleLastNames = new FillArrayListsFromFiles(file.getPathF_LastNames());
+        this.aListMaleFirstName = aListMaleFirstName.getArrayList();
+        this.aListMaleLastNames = aListMaleLastNames.getArrayList();
+        this.aListFemaleFirstNames = aListFemaleFirstNames.getArrayList();
+        this.aListFemaleLastNames = aListFemaleLastNames.getArrayList();
+        minimalAge = file.getAgeFrom();
+        maximalAge = file.getAgeTo();
+    }
 
-    public NamesCollections(ArrayList arrayList, ArrayList arrayList1, ArrayList arrayList2, ArrayList arrayList3) {
-        this.aListMaleFirstName =  arrayList;
-        this.aListMaleLastNames =  arrayList1;
-        this.aListFemaleFirstNames = arrayList2;
-        this.aListFemaleLastNames =  arrayList3;
+    public int getMinimalAge() {
+        return minimalAge;
+    }
+
+    public int getMaximalAge() {
+        return maximalAge;
     }
 
     public String getArListMaleFirstName(int i) {
-        return String.valueOf(aListMaleFirstName.get( i ) );
+        return String.valueOf(aListMaleFirstName.get(i));
     }
 
     public ArrayList getArListMaleFirstName() {
@@ -25,7 +40,7 @@ public class NamesCollections {
     }
 
     public String getArListMaleLastNames(int i) {
-        return (String) aListMaleLastNames.get( i );
+        return (String) aListMaleLastNames.get(i);
     }
 
     public ArrayList getArListMaleLastNames() {
@@ -47,14 +62,4 @@ public class NamesCollections {
     public String getArListFemaleLastNames(int i) {
         return (String) aListFemaleLastNames.get(i);
     }
-
-
-
-/*  private boolean checkIndex(int i, int arrNumber) {
-        if (i >= arraylist[i].lenght[arrNumber]||i<0) {
-            new com.telesens.academy.lesson09.home.ArrayIndexOutOfBoundsException("wrong index for Arraylist element", i);
-            System.exit(1);
-        }
-        return true;
-    }*/
 }

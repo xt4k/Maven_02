@@ -8,11 +8,11 @@ public class Task01 {
         Scanner scanner = new Scanner((System.in));
         System.out.println("введіть розмір: ");
         int size = scanner.nextInt();
-        for (int i =1; i<=size; i++)
+        for (int i = 1; i <= size; i++)
             //1
             //System.out.println(String.format("%." + i + "s", "*****************"));
             //2
-            System.out.println(String.format("%0" + i + "d",0).replace("0","*"));
+            System.out.println(String.format("%0" + i + "d", 0).replace("0", "*"));
 
     }
 }

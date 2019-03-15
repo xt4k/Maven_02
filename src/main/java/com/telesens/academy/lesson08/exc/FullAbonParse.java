@@ -20,7 +20,7 @@ public class FullAbonParse {
         this.setpNumber(parsePNumber(abonentRawString));
         String string = String.format("Abon::\nName: %s \nLastName: %s \nAge: %s \nGender: %s \nPhoneNUmber: %s", this.getfName(), this.getlName(), this.getAge(), this.getGender(), this.getpNumber());
         System.out.println(string);
-        Subscriber abonentParsed = new Subscriber(getfName(),getlName(), getAge(), getGender(), getpNumber());
+        Subscriber abonentParsed = new Subscriber(getfName(), getlName(), getAge(), getGender(), getpNumber());
         this.abonentParsed = abonentParsed;
         //return string;
     }

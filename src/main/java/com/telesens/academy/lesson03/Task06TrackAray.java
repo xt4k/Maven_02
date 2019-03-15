@@ -10,8 +10,8 @@ class Task06TrackArray {
         System.out.println("==========");
 
         for (int i = 0; i < tracks.length; i++) {
-            trackNumber = Integer.parseInt(tracks[i].substring(tracks[i].length()-2));
-            if (trackNumber>=10&&trackNumber<=15 ) System.out.println(tracks[i]);
+            trackNumber = Integer.parseInt(tracks[i].substring(tracks[i].length() - 2));
+            if (trackNumber >= 10 && trackNumber <= 15) System.out.println(tracks[i]);
         }
 
     }

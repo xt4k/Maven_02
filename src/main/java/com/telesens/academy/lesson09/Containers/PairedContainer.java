@@ -1,8 +1,6 @@
 package com.telesens.academy.lesson09.Containers;
 
-import java.lang.reflect.Array;
-
-public class PairedContainer<T,V> {
+public class PairedContainer<T, V> {
     private T firstValue;
     private V secondValue;
 
@@ -18,19 +16,18 @@ public class PairedContainer<T,V> {
         return secondValue;
     }
 
+    public void setSecondValue(V secondValue) {
+        this.secondValue = secondValue;
+    }
+
     @Override
     public String toString() {
-        if (firstValue.getClass().isArray()&&secondValue.getClass().isArray())
-        {
+        if (firstValue.getClass().isArray() && secondValue.getClass().isArray()) {
             Object[] fArray = (Object[]) firstValue;
             Object[] sArray = (Object[]) secondValue;
-            return firstValue + "=>"+ secondValue;
+            return firstValue + "=>" + secondValue;
         }
 
         return null;
-    }
-
-    public void setSecondValue(V secondValue) {
-        this.secondValue = secondValue;
     }
 }

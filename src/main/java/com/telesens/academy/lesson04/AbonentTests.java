@@ -4,7 +4,7 @@ public class AbonentTests {
     private static final String REGEX_FOR_PHONENUMBER = "^\\d{10}$";
 
     public static void main(String[] args) {
-        String someMessage = (String)readTestData("string");
+        String someMessage = (String) readTestData("string");
         //if string
         assert someMessage.equals("Hello world");
 
@@ -13,7 +13,7 @@ public class AbonentTests {
         assert someMessage.equals(10);
 
         //Subscriber abonent = readAbonent();// ?
-        Subscriber abonent = (Subscriber)readTestData("abonent");
+        Subscriber abonent = (Subscriber) readTestData("abonent");
         assert someMessage.equals("Hello world");
 
         // Проверить 1 Имя и Фамилия в верхнем регистре
@@ -40,7 +40,7 @@ public class AbonentTests {
         assert age > 1 && age < 130;
 
         // Пол 'f' либо 'm'
-        assert (abonent.getGender()=='f') || (abonent.getGender()=='m');
+        assert (abonent.getGender() == 'f') || (abonent.getGender() == 'm');
 
         // Телефонный номер состоит только из цифр
 

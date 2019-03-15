@@ -1,7 +1,7 @@
 package com.telesens.academy.lesson06.Enum;
 
 public enum Months {
-    JANUARY(31, "WINTER","зима","январь"),
+    JANUARY(31, "WINTER", "зима", "январь"),
     FEBRUARY(28, "WINTER", "зима", "февраль"),
     MARCH(31, "SPRING", "весна", "март"),
     APRIL(30, "SPRING", "весна", "апрель"),
@@ -17,8 +17,9 @@ public enum Months {
     private int dayNumber;
     private String season;
     private String seasonRus;
-    private  String monthsRus;
-    Months(int dayNumber, String season, String seasonRus, String monthRus){
+    private String monthsRus;
+
+    Months(int dayNumber, String season, String seasonRus, String monthRus) {
         this.dayNumber = dayNumber;
         this.season = season;
         this.seasonRus = seasonRus;
@@ -58,25 +59,27 @@ public enum Months {
     }
 
     public Months getNextMonthsRus(Months months) {
-        if (months.ordinal()==11)
-        return values()[0];
+        if (months.ordinal() == 11)
+            return values()[0];
         else
-            return  values()[months.ordinal()+1];
+            return values()[months.ordinal() + 1];
     }
+
     public Months getPreMonthsRus(Months months) {
-        if (months.ordinal()==0)
+        if (months.ordinal() == 0)
             return values()[11];
         else
-            return  values()[months.ordinal()-1];
+            return values()[months.ordinal() - 1];
     }
 
 
-    public  String rusToString() {
-        return String.format("Сезон:  %s:  Месяц %s состоит из  %s дней",this.seasonRus, this.monthsRus , this.dayNumber);
+    public String rusToString() {
+        return String.format("Сезон:  %s:  Месяц %s состоит из  %s дней", this.seasonRus, this.monthsRus, this.dayNumber);
 
     }
+
     @Override
     public String toString() {
-        return String.format("Month:  %s (EN) ( %s (RUS)) has %s day, in %s season (EN) (or %s (RUS))", this.name(), this.monthsRus , this.dayNumber, this.season, this.seasonRus);
+        return String.format("Month:  %s (EN) ( %s (RUS)) has %s day, in %s season (EN) (or %s (RUS))", this.name(), this.monthsRus, this.dayNumber, this.season, this.seasonRus);
     }
 }

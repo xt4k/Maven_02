@@ -11,9 +11,9 @@ public class Hometask03b {
         System.out.print("input second variable (int b): ");
         int b = scanner.nextInt(); // чтение int числа
         System.out.println();
-        a=a+b;
-        b=a-b;
-        a=a-b;
+        a = a + b;
+        b = a - b;
+        a = a - b;
         System.out.println("variable a: " + a);
         System.out.println("variable b: " + b);
     }

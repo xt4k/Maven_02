@@ -114,14 +114,14 @@ public class CheckDayTime {
         ExtendedTime extendedTime = new ExtendedTime(16, 2, 2019, 16, 42, 4, 231);
         System.out.println("ExtendedTime.print: ");
         extendedTime.print();
-        System.out.println("ExtendedTime.toString: "+ extendedTime.toString());
+        System.out.println("ExtendedTime.toString: " + extendedTime.toString());
 
         System.out.println("=========");
         extendedTime.setExtHour(14);
         System.out.println("1. Updated ExtendedTime (14 hours): " + extendedTime.toString());
 
         System.out.println("=========");
-        extendedTime.setExtDateTime(22, 33, 44,555);
+        extendedTime.setExtDateTime(22, 33, 44, 555);
         System.out.println("2. Updated ExtendedTime (22:33:44.555): " + extendedTime.toString());
 
         System.out.println("=========");

@@ -4,9 +4,9 @@ public class IllegalTimeException extends Exception {
     private String details;
     private int value;
 
-    public IllegalTimeException (String string, int value) {
+    public IllegalTimeException(String string, int value) {
         this.details = string;
-        this.value= value;
+        this.value = value;
     }
 
     public String getDetails() {

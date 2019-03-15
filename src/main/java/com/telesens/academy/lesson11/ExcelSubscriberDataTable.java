@@ -12,8 +12,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ExcelSubscriberDataTable {
+    private int maxNumRows;
+    private  Long subsId;
+    private  Long operId;
+
+    public int getRows() {
+        return this.maxNumRows;
+    }
+
     public ExcelSubscriberDataTable(String s, int maxNumberRow, ArrayList<SubscriberExt> list) {
-        //  File excelFile = new File(s);//"F:/KypcbI/QA_JA/lesson11/data/subsList.xlsx");
+        this.maxNumRows= maxNumberRow;
+
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Subscribers_List");
 
@@ -52,10 +61,10 @@ public class ExcelSubscriberDataTable {
                 cellPrefix.setCellValue(list.get(r).getOperatorPrefix());
             }
         }
-        System.out.println("excel+");
-
-        try (FileOutputStream out = new FileOutputStream(new File(s))) {
-            workbook.write(out);
+        //System.out.println("excel+");
+        //  File excelFile = new File(s);//"F:/KypcbI/QA_JA/lesson11/data/subsList.xlsx");
+        try (FileOutputStream excelFile = new FileOutputStream(new File(s))) {
+            workbook.write(excelFile);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

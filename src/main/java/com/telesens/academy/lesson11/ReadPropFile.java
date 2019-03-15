@@ -20,6 +20,31 @@ public class ReadPropFile {
     private int ageTo;
     private boolean ageGaussian;
 
+    public ReadPropFile(String s) {
+
+        Properties properties = new Properties();
+        File file = new File(s);
+
+        try (FileInputStream fis = new FileInputStream(file)) {
+            properties.load(fis);
+            path_xlsx = properties.getProperty("subscriber.exc");
+            path_txt = properties.getProperty("subscriber.txt");
+            path_sort_txt = properties.getProperty("subscriber.sort.txt");
+            path_zip = properties.getProperty("subscriber.arc");
+            pathM_FirstNames = properties.getProperty("male.firstnames");
+            pathM_LastNames = properties.getProperty("male.lastnames");
+            pathF_FirstNames = properties.getProperty("female.firstnames");
+            pathF_LastNames = properties.getProperty("female.lastnames");
+            ageFrom = Integer.parseInt(properties.getProperty("age.from"));
+            ageTo = Integer.parseInt(properties.getProperty("age.to"));
+            ageGaussian = Boolean.parseBoolean(properties.getProperty("age.gaussian"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     public String getPath_xlsx() {
         return path_xlsx;
     }
@@ -62,32 +87,5 @@ public class ReadPropFile {
 
     public boolean isAgeGaussian() {
         return ageGaussian;
-    }
-
-    public ReadPropFile(String s) throws FileNotFoundException, IOException {
-
-        Properties properties = new Properties();
-        File file = new File(s);
-
-        try (FileInputStream fis = new FileInputStream( file )) {
-            properties.load(fis);
-            path_xlsx = properties.getProperty( "subscriber.exc" );
-            path_txt = properties.getProperty( "subscriber.txt" );
-            path_sort_txt = properties.getProperty( "subscriber.sort.txt");
-            path_zip = properties.getProperty( "subscriber.arc");
-            pathM_FirstNames = properties.getProperty("male.firstnames");
-            pathM_LastNames = properties.getProperty("male.lastnames");
-            pathF_FirstNames = properties.getProperty("female.firstnames");
-            pathF_LastNames = properties.getProperty("female.lastnames");
-            ageFrom = Integer.parseInt( properties.getProperty("age.from"));
-            ageTo = Integer.parseInt( properties.getProperty("age.to"));
-            ageGaussian = Boolean.parseBoolean( properties.getProperty("age.gaussian") );
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-
     }
 }

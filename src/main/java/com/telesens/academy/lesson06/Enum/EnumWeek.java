@@ -3,6 +3,10 @@ package com.telesens.academy.lesson06.Enum;
 public class EnumWeek {
     private String dayName;
 
+    public EnumWeek(String dayName) {
+        this.dayName = dayName;
+    }
+
     public enum WeekDay {
         MONDAY("понедельник"),
         TUESDAY("вторник"),
@@ -10,14 +14,10 @@ public class EnumWeek {
         THURSDAY("четверг"),
         FRIDAY("пятница"),
         SATURDAY("суббота"),
-         SUNDAY("воскресенье");
+        SUNDAY("воскресенье");
 
         WeekDay(Object воскресенье) {
         }
-    }
-
-    public EnumWeek(String dayName) {
-        this.dayName = dayName;
     }
 
 }

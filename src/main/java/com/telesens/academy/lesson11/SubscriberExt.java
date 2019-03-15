@@ -3,12 +3,12 @@ package com.telesens.academy.lesson11;
 public class SubscriberExt {
     private Long id;
     private String firstName;
-	private String lastName;
+    private String lastName;
     private Gender gender;
-	private int age;
-	private String phoneNumber;
-	private Operator operator;
-	private String operatorPrefix;
+    private int age;
+    private String phoneNumber;
+    private Operator operator;
+    private String operatorPrefix;
 
     public String getOperatorPrefix() {
         return operatorPrefix;
@@ -75,8 +75,12 @@ public class SubscriberExt {
     }
 
     @Override
-    public  String toString() {
-        String string ="SubscriberExt:\n id=" + id + ",\n firstName= " + firstName +",\n lastName= " + lastName  +           ",\n gender=" + gender +",\n age=" + age + ",\n phoneNumber= " + phoneNumber +",\n operator= " + operator +".";
+    public String toString() {
+        String string = "SubscriberExt:\n id=" + id + ",\n firstName= " + firstName + ",\n lastName= " + lastName + ",\n gender=" + gender + ",\n age=" + age + ",\n phoneNumber= " + phoneNumber + ",\n operator= " + operator + ".";
         return string;
+    }
+
+    public void setOperator(int operId, String operName) {
+
     }
 }
