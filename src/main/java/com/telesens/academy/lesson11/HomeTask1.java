@@ -2,10 +2,9 @@ package com.telesens.academy.lesson11;
 
 
 import java.io.IOException;
-import java.util.List;
 
 public class HomeTask1 {
-    static String PROP_FILE_PATH = "d:/KypcbI/QA_JA/lesson11/java-part.properties";
+    static String PROP_FILE_PATH = "f:/KypcbI/QA_JA/lesson11/java-part.properties";
 
     public static void main(String[] args) {
         ReadPropFile readPropFile = null;
@@ -29,8 +28,7 @@ public class HomeTask1 {
                 arrayListFemaleLastNames.getArrayList() );
 
         SubscriberConstructor subscriberConstructor = new SubscriberConstructor(namesCollections,200 ,minimalAge,maximalAge);
-
-        List Subslist = subscriberConstructor.getArrayListSubsExt();
+        ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable(readPropFile.getPath_xlsx(), 200, subscriberConstructor.getArrayListSubsExt());
 
         System.out.println( "++" );
 

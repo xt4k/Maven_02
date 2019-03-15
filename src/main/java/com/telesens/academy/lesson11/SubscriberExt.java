@@ -4,7 +4,7 @@ public class SubscriberExt {
     private Long id;
     private String firstName;
 	private String lastName;
-	private Gender gender; // создать перечисление Gender для мужского и женского пола
+    private Gender gender;
 	private int age;
 	private String phoneNumber;
 	private Operator operator;

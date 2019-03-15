@@ -2,7 +2,6 @@ package com.telesens.academy.lesson11;
 
 import com.telesens.academy.lesson09.home.GeneratePhoneNumbers;
 
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -56,13 +55,14 @@ public class SubscriberConstructor {
             //System.out.println("set PhoneNumber");
 
             //set Operator and Prefix
-            Long operatorId = (Long) Long.parseLong(operatorPrefixCode.getPrefixCode()+i );
+            Long operatorId = Long.parseLong(operatorPrefixCode.getPrefixCode() + i);
             Operator subsOperator = new Operator(operatorId,operatorPrefixCode.getOperName());
             currentSubscriberExt.setOperator(subsOperator);
             //System.out.println("set Operator and Prefix");
 
             //set OperatorPrefix
             currentSubscriberExt.setOperatorPrefix(operatorPrefixCode.getPrefixCode());
+
 
             arrayListSubsExt.add( currentSubscriberExt );
             //System.out.println("add all subs info into Array.list");
