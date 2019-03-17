@@ -15,11 +15,13 @@ public class HomeTask1 {
 
         // subscriberConstructor.sort(new ComparatorByFirstAndLastNamesImpl());
 
-
         System.out.println("compare");
-        ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable(readPropFile.getPath_xlsx(), 200, subscriberConstructor.getArrayListSubsExt());
+        ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable( 200, subscriberConstructor.getArrayListSubsExt() );
+        excelSubscribersTable.saveTo( readPropFile.getPath_xlsx() );
 
         ReadSubscriberExcelToMap mapSubscriber = new ReadSubscriberExcelToMap(readPropFile);
+        mapSubscriber.saveTo( readPropFile.getPath_txt() )
+
 
         System.out.println("++");
 

@@ -13,20 +13,20 @@ import java.util.ArrayList;
 
 public class ExcelSubscriberDataTable {
     private int maxNumRows;
-    private  Long subsId;
-    private  Long operId;
+    private XSSFWorkbook workbook;
+
 
     public int getRows() {
         return this.maxNumRows;
     }
 
-    public ExcelSubscriberDataTable(String s, int maxNumberRow, ArrayList<SubscriberExt> list) {
+    public ExcelSubscriberDataTable(int maxNumberRow, ArrayList<SubscriberExt> list) {
         this.maxNumRows= maxNumberRow;
 
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Subscribers_List");
 
-        for (int r = 0; r < maxNumberRow; r++) {
+        for (int r = 0; r < maxNumberRow + 1; r++) {
             XSSFRow row = sheet.createRow(r);
             Cell cellId = row.createCell(0);
             Cell cellFirstName = row.createCell(1);
@@ -50,21 +50,24 @@ public class ExcelSubscriberDataTable {
                 cellPrefix.setCellValue("Prefix");
             } else {
                 //System.out.println("r " + r);
-                cellId.setCellValue(list.get(r).getId());
-                cellFirstName.setCellValue(list.get(r).getFirstName());
-                cellLastName.setCellValue(list.get(r).getLastName());
-                cellGender.setCellValue(String.valueOf(list.get(r).getGender()));
-                cellAge.setCellValue(list.get(r).getAge());
-                cellOperatorId.setCellValue(list.get(r).getOperator().getId());
-                cellPhoneNumber.setCellValue(list.get(r).getPhoneNumber());
-                cellMobileOperator.setCellValue(list.get(r).getOperator().getName());
-                cellPrefix.setCellValue(list.get(r).getOperatorPrefix());
+                cellId.setCellValue( list.get( r - 1 ).getId() );
+                cellFirstName.setCellValue( list.get( r - 1 ).getFirstName() );
+                cellLastName.setCellValue( list.get( r - 1 ).getLastName() );
+                cellGender.setCellValue( String.valueOf( list.get( r - 1 ).getGender() ) );
+                cellAge.setCellValue( list.get( r - 1 ).getAge() );
+                cellOperatorId.setCellValue( list.get( r - 1 ).getOperator().getId() );
+                cellPhoneNumber.setCellValue( list.get( r - 1 ).getPhoneNumber() );
+                cellMobileOperator.setCellValue( list.get( r - 1 ).getOperator().getName() );
+                cellPrefix.setCellValue( list.get( r - 1 ).getOperatorPrefix() );
             }
         }
+        this.workbook = workbook;
         //System.out.println("excel+");
-        //  File excelFile = new File(s);//"F:/KypcbI/QA_JA/lesson11/data/subsList.xlsx");
-        try (FileOutputStream excelFile = new FileOutputStream(new File(s))) {
-            workbook.write(excelFile);
+    }
+
+    public void saveTo(String string) {
+        try (FileOutputStream excelFile = new FileOutputStream( new File( string ) )) {
+            this.workbook.write( excelFile );
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

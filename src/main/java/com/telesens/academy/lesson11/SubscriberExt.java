@@ -76,7 +76,7 @@ public class SubscriberExt {
 
     @Override
     public String toString() {
-        String string = "SubscriberExt:\n id=" + id + ",\n firstName= " + firstName + ",\n lastName= " + lastName + ",\n gender=" + gender + ",\n age=" + age + ",\n phoneNumber= " + phoneNumber + ",\n operator= " + operator + ".";
+        String string = id + "|" + firstName + "|" + lastName + "|" + gender + "|" + age + "|" + phoneNumber + "|" + operator.getId() + "|" + operator.getName() + "\n";
         return string;
     }
 
