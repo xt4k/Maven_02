@@ -4,6 +4,10 @@ package com.telesens.academy.lesson11;
 public class HomeTask1 {
     static String PROP_FILE_PATH = "f:/KypcbI/QA_JA/lesson11/java-part.properties";
 
+    public static String getPropFilePath() {
+        return PROP_FILE_PATH;
+    }
+
     public static void main(String[] args) {
         ReadPropFile readPropFile = null;
 
