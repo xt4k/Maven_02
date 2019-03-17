@@ -20,7 +20,7 @@ public class HomeTask1 {
         excelSubscribersTable.saveTo( readPropFile.getPath_xlsx() );
 
         ReadSubscriberExcelToMap mapSubscriber = new ReadSubscriberExcelToMap(readPropFile);
-        mapSubscriber.saveTo( readPropFile.getPath_txt() )
+        mapSubscriber.saveTo( readPropFile.getPath_txt() );
 
 
         System.out.println("++");
