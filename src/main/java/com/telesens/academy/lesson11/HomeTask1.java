@@ -11,12 +11,12 @@ public class HomeTask1 {
 
         NamesCollections namesCollections = new NamesCollections(readPropFile);
 
-        SubscriberConstructor subscriberConstructor = new SubscriberConstructor(namesCollections, 200, namesCollections.getMinimalAge(), namesCollections.getMaximalAge());
+        SubscriberConstructor subsConstr = new SubscriberConstructor( namesCollections, 200, namesCollections.getMinimalAge(), namesCollections.getMaximalAge(), readPropFile.isAgeGaussian() );
 
         // subscriberConstructor.sort(new ComparatorByFirstAndLastNamesImpl());
 
         System.out.println("compare");
-        ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable( 200, subscriberConstructor.getArrayListSubsExt() );
+        ExcelSubscriberDataTable excelSubscribersTable = new ExcelSubscriberDataTable( 200, subsConstr.getArrayListSubsExt() );
         excelSubscribersTable.saveTo( readPropFile.getPath_xlsx() );
 
         ReadSubscriberExcelToMap mapSubscriber = new ReadSubscriberExcelToMap(readPropFile);

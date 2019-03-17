@@ -9,58 +9,63 @@ public class SubscriberConstructor {
     private ArrayList<SubscriberExt> arrayListSubsExt = new ArrayList<>();
 
 
-    public SubscriberConstructor(NamesCollections file, int subsNumbers, int min, int max) {
+    public SubscriberConstructor(NamesCollections file, int subsNumbers, int min, int max, boolean isAgeGaussian) {
         Random random = new Random();
 
         for (int i = 0; i < subsNumbers; i++) {
             SubscriberExt currentSubscriberExt = new SubscriberExt();
             //set subscriber id
-            currentSubscriberExt.setId(Integer.toUnsignedLong(i));
+            currentSubscriberExt.setId( Integer.toUnsignedLong( i ) );
 
             //set subscriber  gender
             Gender randomGender = Gender.getRandomGender();
-            currentSubscriberExt.setGender(randomGender);
+            currentSubscriberExt.setGender( randomGender );
 
             //set subscriber firstname + lastname
-            if (String.valueOf(randomGender).equals("MALE")) {
-                int randomNum = random.nextInt(file.getArListMaleFirstName().size());
-                currentSubscriberExt.setFirstName(file.getArListMaleFirstName(randomNum));
+            if (String.valueOf( randomGender ).equals( "MALE" )) {
+                int randomNum = random.nextInt( file.getArListMaleFirstName().size() );
+                currentSubscriberExt.setFirstName( file.getArListMaleFirstName( randomNum ) );
 
-                randomNum = random.nextInt(file.getArListMaleLastNames().size());
-                currentSubscriberExt.setLastName(file.getArListMaleLastNames(randomNum));
+                randomNum = random.nextInt( file.getArListMaleLastNames().size() );
+                currentSubscriberExt.setLastName( file.getArListMaleLastNames( randomNum ) );
 
             } else {
-                int randomNum = random.nextInt(file.getArListFemaleFirstNames().size());
-                currentSubscriberExt.setFirstName(String.valueOf(file.getArListFemaleFirstNames(randomNum)));
+                int randomNum = random.nextInt( file.getArListFemaleFirstNames().size() );
+                currentSubscriberExt.setFirstName( String.valueOf( file.getArListFemaleFirstNames( randomNum ) ) );
 
-                randomNum = random.nextInt(file.getArListFemaleLastNames().size());
-                currentSubscriberExt.setLastName(file.getArListFemaleLastNames(randomNum));
+                randomNum = random.nextInt( file.getArListFemaleLastNames().size() );
+                currentSubscriberExt.setLastName( file.getArListFemaleLastNames( randomNum ) );
             }
             //set Age
-            int randomNum = (int) Math.round(random.nextGaussian() * (max + min) / 2) + (max + min) / 2;
-            while ((randomNum < min) | (randomNum > max))
-                randomNum = (int) Math.round(Math.abs(random.nextGaussian() * (max + min) / 2));
+            if (isAgeGaussian) {
+                int randomNum = (int) Math.round( random.nextGaussian() * (max + min) / 2 ) + (max + min) / 2;
+                while ((randomNum < min) | (randomNum > max))
+                    randomNum = (int) Math.round( Math.abs( random.nextGaussian() * (max + min) / 2 ) );
 
-            currentSubscriberExt.setAge(randomNum);
+                currentSubscriberExt.setAge( randomNum );
+            } else {
+                int randomNum = min + Math.round( Math.abs( random.nextInt( max - min ) ) );
+                currentSubscriberExt.setAge( randomNum );
+            }
 
             //set PhoneNumber
             OperatorPrefixCode operatorPrefixCode = new OperatorPrefixCode();
             GeneratePhoneNumbers generatePhoneNumber = new GeneratePhoneNumbers();
             operatorPrefixCode.setRandom();
-            currentSubscriberExt.setPhoneNumber(generatePhoneNumber.getPhoneNumber(operatorPrefixCode.getPrefixCode()));
+            currentSubscriberExt.setPhoneNumber( generatePhoneNumber.getPhoneNumber( operatorPrefixCode.getPrefixCode() ) );
             //System.out.println("set PhoneNumber");
 
             //set Operator and Prefix
-            Long operatorId = Long.parseLong(operatorPrefixCode.getPrefixCode() + i);
-            Operator subsOperator = new Operator(operatorId, operatorPrefixCode.getOperName());
-            currentSubscriberExt.setOperator(subsOperator);
+            Long operatorId = Long.parseLong( operatorPrefixCode.getPrefixCode() + i );
+            Operator subsOperator = new Operator( operatorId, operatorPrefixCode.getOperName() );
+            currentSubscriberExt.setOperator( subsOperator );
             //System.out.println("set Operator and Prefix");
 
             //set OperatorPrefix
-            currentSubscriberExt.setOperatorPrefix(operatorPrefixCode.getPrefixCode());
+            currentSubscriberExt.setOperatorPrefix( operatorPrefixCode.getPrefixCode() );
 
 
-            arrayListSubsExt.add(currentSubscriberExt);
+            arrayListSubsExt.add( currentSubscriberExt );
             //System.out.println("add all subs info into Array.list");
         }
         //System.out.println("subs completed");

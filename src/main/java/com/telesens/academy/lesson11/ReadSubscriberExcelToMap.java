@@ -69,10 +69,8 @@ public class ReadSubscriberExcelToMap {
             e.printStackTrace();
         }
         this.subscriberExtHashMap = subscriberExtHashMap;
-
-        System.out.println( "map+" );
+        //System.out.println("map designed");
     }
-
 
     public void saveTo(String string) {
 
@@ -86,7 +84,7 @@ public class ReadSubscriberExcelToMap {
                 IOException e) {
             e.printStackTrace();
         }
-        System.out.println("map+");
+        //System.out.println("map saved to file");
     }
 
 }
