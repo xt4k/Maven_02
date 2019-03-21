@@ -13,8 +13,7 @@ public enum Gender {
 
     public static Gender getRandomGender() {
         Random random = new Random();
-        int RandomNum = random.nextInt(2000);
-        if (!((random.nextInt() % 2) == 0)) {
+        if (random.nextBoolean()) {
             return MALE;
         } else return FEMALE;
     }

@@ -8,7 +8,7 @@ import com.telesens.academy.lesson11.SubscriberConstructor;
 import java.sql.*;
 
 
-public class HomeTask4aFillAbonentsDB {
+public class HomeTaskInsertAbonentsToDB {
 
     private static String JDBC_URL = "jdbc:mysql://localhost:3306/qa-ja-06?user=root&password=1234";
     private static int DB_SIZE = 200;
@@ -32,16 +32,10 @@ public class HomeTask4aFillAbonentsDB {
             System.out.println( "clear content of table abonent" );
 
             for (int i = 0; i < subsArrayList.getArrayListSubsExt().size(); i++) {
-                Long subId = subsArrayList.getArrayListSubsExt().get( i ).getId();
-                String fName = subsArrayList.getArrayListSubsExt().get( i ).getFirstName();
-                String lName = subsArrayList.getArrayListSubsExt().get( i ).getLastName();
-                String gender = (String.valueOf( subsArrayList.getArrayListSubsExt().get( i ).getGender() ).substring( 0, 1 ));
-                int age = subsArrayList.getArrayListSubsExt().get( i ).getAge();
-                String requestSQL = "INSERT INTO abonent VALUES(" + subId + ", '" + fName + "', '" + lName + "', '" +
-                        gender + "'," + age + ")";
+
+                String requestSQL = (new GenerateSQL_RequestString( subsArrayList, i ).getRequestSQL());
                 System.out.println( "i: " + i + " requestSQL: " + requestSQL );
                 statement.executeUpdate( requestSQL );
-
             }
 
             ResultSet resultSet = statement.executeQuery( "SELECT * FROM abonent" );

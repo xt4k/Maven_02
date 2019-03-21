@@ -6,14 +6,12 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class ReadSubscriberExcelToMap {
     private Map<Long, SubscriberExt> subscriberExtHashMap;
-    private ArrayList aListMaleFirstName;
 
     public ReadSubscriberExcelToMap(ReadPropFile readPropFile) {
         Map<Long, SubscriberExt> subscriberExtHashMap = new HashMap<>();
