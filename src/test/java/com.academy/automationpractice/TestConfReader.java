@@ -1,8 +1,5 @@
 package com.academy.automationpractice;
 
-import org.apache.poi.hssf.usermodel.HSSFRow;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -21,7 +18,7 @@ public class TestConfReader {
     private List<String> expectedErrMsg;
     private int row;
 
-
+/*
     public TestConfReader(String confFilePath, String confFileName, String sheetName, int rowNum) {
         File file = new File( confFilePath + confFileName );
         XSSFWorkbook workbook;
@@ -39,25 +36,27 @@ public class TestConfReader {
             System.out.println( "Something wrong" );
             e.printStackTrace();
         }
-    }
+    }*/
 
     public TestConfReader(String confFilePathFileName, String sheetName, int rowNum) {
-        File file = new File( confFilePathFileName );
         List<String> url = new ArrayList<>();
         List<String> login = new ArrayList<>();
         List<String> password = new ArrayList<>();
         List<String> expectedErrMsg = new ArrayList<>();
 
-        // XSSFWorkbook workbook;
-        HSSFWorkbook workbook;
+        File file = new File( confFilePathFileName );
+
+        //  HSSFWorkbook workbook;
+        XSSFWorkbook workbook;
+
         try {
-            //workbook = new  XSSFWorkbook( new FileInputStream( file ) );
-            workbook = new HSSFWorkbook( new FileInputStream( file ) );
-            HSSFSheet sheet = workbook.getSheet( sheetName );
-            //XSSFSheet sheet = workbook.getSheet( sheetName );
-            for (int i = 2; i <= rowNum; i++) {
-                HSSFRow parRow = sheet.getRow( i );
-                // XSSFRow parRow = sheet.getRow( row );
+            //workbook = new HSSFWorkbook( new FileInputStream( file ) );
+            // HSSFSheet sheet = workbook.getSheet( sheetName );
+            workbook = new XSSFWorkbook( new FileInputStream( file ) );
+            XSSFSheet sheet = workbook.getSheet( sheetName );
+            for (int i = 1; i <= rowNum; i++) {
+                //  HSSFRow parRow = sheet.getRow( i );
+                XSSFRow parRow = sheet.getRow( row );
                 url.add( parRow.getCell( 0 ).getStringCellValue() );
                 login.add( parRow.getCell( 1 ).getStringCellValue() );
                 password.add( parRow.getCell( 2 ).getStringCellValue() );
@@ -67,6 +66,12 @@ public class TestConfReader {
             System.out.println( "Something wrong" );
             e.printStackTrace();
         }
+        this.url = url;
+        this.login = login;
+        this.password = password;
+        this.expectedErrMsg = expectedErrMsg;
+        System.out.println( "read from excel conf file" );
+
     }
 
     public String getUrl(int i) {
