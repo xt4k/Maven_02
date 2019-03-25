@@ -16,27 +16,6 @@ public class TestConfReader {
     private List<String> login;
     private List<String> password;
     private List<String> expectedErrMsg;
-    private int row;
-
-/*
-    public TestConfReader(String confFilePath, String confFileName, String sheetName, int rowNum) {
-        File file = new File( confFilePath + confFileName );
-        XSSFWorkbook workbook;
-        try {
-            workbook = new XSSFWorkbook( new FileInputStream( file ) );
-            XSSFSheet sheet = workbook.getSheet( sheetName );
-            for (int i = 0; i < rowNum; i++) {
-                XSSFRow parRow = sheet.getRow( row );
-                this.url.add( parRow.getCell( 0 ).getStringCellValue() );
-                this.login.add( parRow.getCell( 1 ).getStringCellValue() );
-                this.password.add( parRow.getCell( 2 ).getStringCellValue() );
-                this.expectedErrMsg.add( parRow.getCell( 3 ).getStringCellValue() );
-            }
-        } catch (IOException e) {
-            System.out.println( "Something wrong" );
-            e.printStackTrace();
-        }
-    }*/
 
     public TestConfReader(String confFilePathFileName, String sheetName, int rowNum) {
         List<String> url = new ArrayList<>();
@@ -56,7 +35,7 @@ public class TestConfReader {
             XSSFSheet sheet = workbook.getSheet( sheetName );
             for (int i = 1; i <= rowNum; i++) {
                 //  HSSFRow parRow = sheet.getRow( i );
-                XSSFRow parRow = sheet.getRow( row );
+                XSSFRow parRow = sheet.getRow( i );
                 url.add( parRow.getCell( 0 ).getStringCellValue() );
                 login.add( parRow.getCell( 1 ).getStringCellValue() );
                 password.add( parRow.getCell( 2 ).getStringCellValue() );
