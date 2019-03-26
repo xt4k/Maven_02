@@ -33,7 +33,7 @@ public class TestConfReader {
             // HSSFSheet sheet = workbook.getSheet( sheetName );
             workbook = new XSSFWorkbook( new FileInputStream( file ) );
             XSSFSheet sheet = workbook.getSheet( sheetName );
-            for (int i = 1; i <= rowNum; i++) {
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
                 //  HSSFRow parRow = sheet.getRow( i );
                 XSSFRow parRow = sheet.getRow( i );
                 url.add( parRow.getCell( 0 ).getStringCellValue() );

@@ -28,19 +28,19 @@ public class AuthTests {
     @Parameters("browser")
     @BeforeClass(alwaysRun = true)
     public void setUp(@Optional("firefox") String browser) {
-        Initialize initialize = new Initialize( "chrome" );
+        Initialize initialize = new Initialize( browser );
         driver = initialize.getDriver();
         driver.manage().timeouts().implicitlyWait( 5, TimeUnit.SECONDS );
 
-        initialize = new Initialize( "firefox" );
+  /*      initialize = new Initialize( "firefox" );
         driver = initialize.getDriver();
         driver.manage().timeouts().implicitlyWait( 5, TimeUnit.SECONDS );
-
+*/
         System.out.println();
 
     }
 
-    @Test
+    @Test(dataProvider = "autDataProvider")
     public void testUntitledTestCase() {
 
         Properties loginProperties = new Properties();
@@ -84,10 +84,7 @@ public class AuthTests {
                 verificationErrors.append( e.toString() );
             }
         }
-
         System.out.println( "Webpage error messages" + actualErrMsg );
-
-
     }
 
     @AfterClass(alwaysRun = true)
@@ -97,5 +94,13 @@ public class AuthTests {
         if (!"".equals( verificationErrorString )) {
             fail( verificationErrorString );
         }
+    }
+
+    @DataProvider(name = "autDataProvider")
+    public Object[][] autDataProvider() {
+        String pathData = "";
+        return new Object[][]{
+                {"", "", "", ""}, {"", "", "", ""}, {"", "", "", ""},
+        };
     }
 }

@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="CrossBrowserTestExample">
-    <test name="FirefoxTest">
-        <parameter name="browser" value="firefox"/>
-        <packages>
-            <package name="com.telesens.*"/>
-        </packages>
-    </test>
-    <test name="ChromeTest">
+
+<!--Конфигурация для testNG фреймворка-->
+<suite name="Cross Browser  Suite">
+    <test name="Login Tests Chrome">
         <parameter name="browser" value="chrome"/>
-        <packages>
-            <package name="com.telesens.*"/>
-        </packages>
+        <classes>
+            <class name="com.academy.automationpractice.AuthTests"/>
+        </classes>
+    </test>
+
+    <test name="Login Tests Firefox">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.academy.automationpractice.AuthTests"/>
+        </classes>
     </test>
 </suite>
