@@ -9,10 +9,11 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class Initialize {
-    String commonProperties = System.getProperty( "common.cfg" );
+    //String commonProperties = System.getProperty( "common.cfg" );
     private WebDriver driver;
 
     public Initialize(String browser) {
+        String commonProperties = System.getProperty( "common.cfg" );
         // this.properties = properties;
         Properties properties = new Properties();
         try {
