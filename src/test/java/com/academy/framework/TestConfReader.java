@@ -1,4 +1,4 @@
-package com.academy.automationpractice;
+package com.academy.framework;
 
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -17,13 +17,13 @@ public class TestConfReader {
     private List<String> password;
     private List<String> expectedErrMsg;
 
-    public TestConfReader(String confFilePathFileName, String sheetName, int rowNum) {
+    public TestConfReader(String confParameterName, String sheetName) {
         List<String> url = new ArrayList<>();
         List<String> login = new ArrayList<>();
         List<String> password = new ArrayList<>();
         List<String> expectedErrMsg = new ArrayList<>();
 
-        File file = new File( confFilePathFileName );
+        File file = new File( confParameterName );
 
         //  HSSFWorkbook workbook;
         XSSFWorkbook workbook;
@@ -33,7 +33,7 @@ public class TestConfReader {
             // HSSFSheet sheet = workbook.getSheet( sheetName );
             workbook = new XSSFWorkbook( new FileInputStream( file ) );
             XSSFSheet sheet = workbook.getSheet( sheetName );
-            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+            for (int i = 0; i <= sheet.getLastRowNum(); i++) {
                 //  HSSFRow parRow = sheet.getRow( i );
                 XSSFRow parRow = sheet.getRow( i );
                 url.add( parRow.getCell( 0 ).getStringCellValue() );
@@ -51,6 +51,13 @@ public class TestConfReader {
         this.expectedErrMsg = expectedErrMsg;
         System.out.println( "read from excel conf file" );
 
+    }
+
+    @Override
+    public String toString() {
+        return "TestConfReader. sheetName: " + sheetName + ", url:" + url.toString() +
+                ", login: " + login.toString() + ", password: " + password.toString() +
+                ", expectedErrMsg=" + expectedErrMsg.toString();
     }
 
     public String getUrl(int i) {

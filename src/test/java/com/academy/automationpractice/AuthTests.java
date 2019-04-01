@@ -1,5 +1,6 @@
 package com.academy.automationpractice;
 
+import com.academy.framework.TestConfReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,7 +17,7 @@ import static org.testng.Assert.fail;
 
 
 public class AuthTests {
-    private String loginDetails = "C:\\Users\\xt4k\\IdeaProjects\\qa-ja-06_maven_02\\src\\main\\resources\\automationpractice.properties.properties";
+    private String loginDetails = "C:\\Users\\xt4k\\IdeaProjects\\qa-ja-06_maven_02\\src\\main\\resources\\automationpractice.properties";
     private WebDriver driver;
     private String baseUrl;
     private String geckoDriver;
@@ -27,7 +28,7 @@ public class AuthTests {
 
     @Parameters("browser")
     @BeforeClass(alwaysRun = true)
-    public void setUp(@Optional("firefox") String browser) {
+    public void setUp(@Optional("ie") String browser) {
         Initialize initialize = new Initialize( browser );
         driver = initialize.getDriver();
         driver.manage().timeouts().implicitlyWait( 5, TimeUnit.SECONDS );
@@ -53,7 +54,7 @@ public class AuthTests {
 
 
         TestConfReader testConfReader = new TestConfReader(
-                loginProperties.getProperty( "automation.auth.data.exc" ), "login_credentials", 7 );
+                loginProperties.getProperty( "automation.auth.data.exc" ), "login_credentials" );
 
         ArrayList<String> actualErrMsg = new ArrayList<>();
 

@@ -1,24 +1,28 @@
 package com.academy.rozetka;
 
+import com.academy.framework.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
 
-public class SelectProduct extends AuthTests {
+public class SelectProduct extends BaseTest {
 
-    WebElement prodCat = driver.findElement( By.cssSelector( "body > * > * > * > * > * > * > *> * > fat-menu > div > ul > li:nth-child(3) > a" ) );
+    private String prodCatLocator = "body > * > * > * > * > * > * > * > * > fat-menu > * > * > *:nth-child(2) > a";
+    private String prodSubCatLocator = "content-inner-block > * > * > * > * > * > * > * > * > * > * > * > * > * > *:nth-child(2) > *:nth-child(3) > * > * > *:nth-child(6) > a";
 
-    Actions actions = new Actions( driver );
-    WebElement we = driver.findElement( By.linkText( "menulink" ) );
-actions.moveToElement(we)
+    private String prodCatLink = "https://rozetka.com.ua/ua/telefony-tv-i-ehlektronika/c4627949";
+    private String prodSubCatLink = "https://rozetka.com.ua/ua/zaryadnye-ustroystva-dlya-foto-i-videokamer/c83878";
 
-    WebElement subMenu = driver.findElement( By.cssSelector( "subLinklocator" ) );
-actions.moveToElement(subMenu)
-actions.click().
+    @Test
+    public void SelectProductByClickSuccess() {
+        driver.get( "http://rozetka.com.ua" );
 
-    build().
+        WebElement prodCat = driver.findElement( By.cssSelector( prodCatLocator ) );
+        prodCat.click();
 
-    perform();
+        WebElement prodSubCat = driver.findElement( By.cssSelector( prodSubCatLocator ) );
+        prodSubCat.click();
 
+    }
 
 }

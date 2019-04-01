@@ -76,7 +76,7 @@
                     </systemProperties>
                     <!--Путь к конфигурации testng.xml-->
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>suites/testng-rozetka.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
