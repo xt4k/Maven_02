@@ -14,7 +14,8 @@ public class SelectProductHover extends BaseTest {
 
     @Test
     public void SelectSubCategoryProductSuccess() {
-        driver.get( "http://rozetka.com.ua" );
+
+        driver.get( "http://rozetka.com.ua" ); 
 
         WebElement prodCat = driver.findElement( By.cssSelector( prodCatLocator ) );
         WebElement prodSubCat = driver.findElement( By.cssSelector( prodSubCatLocator ) );

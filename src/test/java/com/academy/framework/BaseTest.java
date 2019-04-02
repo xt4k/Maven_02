@@ -2,7 +2,6 @@ package com.academy.framework;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
@@ -41,10 +40,11 @@ public class BaseTest {
         switch (browser) {
             case "chrome":
                 System.setProperty( "webdriver.chrome.driver", properties.getProperty( "chrome.driver" ) );
-                // driver = new ChromeDriver();
-                ChromeOptions chrome_options = new ChromeOptions();
-                chrome_options.addArguments( "--start-maximized" );
-                driver = new ChromeDriver( chrome_options );
+                driver = new ChromeDriver();
+                // ChromeOptions chrome_options = new ChromeOptions();
+                //  chrome_options.addArguments( "--start-maximized" );
+                // driver = new ChromeDriver( chrome_options );
+                driver.manage().window().maximize();
                 break;
 
             case "firefox":
