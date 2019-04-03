@@ -27,13 +27,19 @@ public class AuthTests extends BaseTest {
         TestConfReader testConfReader = new TestConfReader( loginProperties.getProperty( "rozetka.data" ), "auth_pass" );
 
         MainPage mainPage = new MainPage( driver );
+        driver.get( testConfReader.getUrl( 1 ) );
         String oldMessage = mainPage.getEnterLinkText();
+        System.out.println( "" );
 
         AuthFormPage authFormPage = mainPage.clickEnterLink();
 
+        System.out.println( "testConfReader.getLogin( 1 ): " + testConfReader.getLogin( 1 ) );
+        System.out.println( "testConfReader.getPassword( 1 ): " + testConfReader.getPassword( 1 ) );
         authFormPage.enterLogin( testConfReader.getLogin( 1 ) );
-        authFormPage.enterPasword( testConfReader.getLogin( 1 ) );
-        authFormPage.submit( true );
+        authFormPage.enterPasword( testConfReader.getPassword( 1 ) );
+
+        mainPage = (MainPage) authFormPage.submit( true );
+        //authFormPage.submit( true );
 
         mainPage = mainPage.waitUntilLinkTextChanged( oldMessage );
         String username = mainPage.getEnterLinkText();

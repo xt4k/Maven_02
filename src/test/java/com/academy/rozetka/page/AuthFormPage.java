@@ -6,17 +6,19 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AuthFormPage extends BasePage {
+
     @FindBy(id = "auth_email")
     WebElement loginField;
     @FindBy(id = "auth_pass")
     WebElement passwordField;
+    // @FindBy(css = "body > app-root > div > div:nth-child(2) > div.app-rz-common > auth-modal > modal-window > div > div > div > auth-content > div > form > div > button")
+    //
     @FindBy(css = "body > * > * > * > * > * > * > * > * > * > * > * > * > * > button")
-    WebElement loginButton;
-    private WebDriver driver;
+    WebElement submitButton;
+
 
     public AuthFormPage(WebDriver driver) {
         super( driver );
-
     }
 
     public AuthFormPage enterLogin(String login) {
@@ -30,7 +32,7 @@ public class AuthFormPage extends BasePage {
     }
 
     public BasePage submit(boolean isCorrect) {
-        this.driver = driver;
+        submitButton.click();
         if (isCorrect)
             return new MainPage( driver );
         else return this;
