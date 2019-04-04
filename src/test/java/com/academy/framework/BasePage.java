@@ -25,6 +25,6 @@ public class BasePage {
     protected void waitUntilLinkTextChanged(String locator, String oldMessage) {
         WebDriverWait webDriverWait = new WebDriverWait( driver, EXPLICITLY_WAIT_TIMEOUT );
         webDriverWait.until( ExpectedConditions.not( ExpectedConditions.textToBe( By.cssSelector( locator ), oldMessage ) ) );
-        // return this;
+        /// return this;
     }
 }
