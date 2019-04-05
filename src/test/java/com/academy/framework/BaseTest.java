@@ -3,7 +3,6 @@ package com.academy.framework;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
@@ -25,6 +24,7 @@ public class BaseTest {
     public void setUp(@Optional("firefox") String browser) {
         initDrivers( browser );
         driver.manage().timeouts().implicitlyWait( 10, TimeUnit.SECONDS );
+        driver.manage().window().maximize();
     }
 
     private void initDrivers(String browser) {
@@ -44,14 +44,14 @@ public class BaseTest {
                 // ChromeOptions chrome_options = new ChromeOptions();
                 //  chrome_options.addArguments( "--start-maximized" );
                 // driver = new ChromeDriver( chrome_options );
-                driver.manage().window().maximize();
                 break;
 
             case "firefox":
                 System.setProperty( "webdriver.gecko.driver", properties.getProperty( "gecko.driver" ) );
-                FirefoxOptions firefox_options = new FirefoxOptions();
+                driver = new FirefoxDriver();
+/*              FirefoxOptions firefox_options = new FirefoxOptions();
                 firefox_options.addArguments( "--start-maximized" );
-                driver = new FirefoxDriver( firefox_options );
+                driver = new FirefoxDriver( firefox_options );*/
                 break;
 
             default:

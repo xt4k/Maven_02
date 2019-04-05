@@ -69,7 +69,7 @@ public class TestConfReader {
     }
 
     public String getLogin(int i) {
-        return login.get( i );
+        return login.get(i);
     }
 
     public String getPassword(int i) {

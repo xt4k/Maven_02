@@ -6,14 +6,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class AuthFormPage extends BasePage {
-
     @FindBy(id = "auth_email")
     WebElement loginField;
+
     @FindBy(id = "auth_pass")
     WebElement passwordField;
-    // @FindBy(css = "body > app-root > div > div:nth-child(2) > div.app-rz-common > auth-modal > modal-window > div > div > div > auth-content > div > form > div > button")
-    //
-    @FindBy(css = "body > * > * > * > * > * > * > * > * > * > * > * > * > * > button")
+
+    @FindBy(css = "body > app-root > div > div:nth-child(2) > div.app-rz-common > auth-modal > modal-window > div > div > div > auth-content > div > form > div > button")
+    //@FindBy(css = "body > * > * > * > * > * > * > * > * > * > * > * > * > * > button")
     WebElement submitButton;
 
 
