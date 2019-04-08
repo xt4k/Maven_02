@@ -39,7 +39,7 @@ public class AuthTests extends BaseTest {
         authFormPage.enterLogin(testConfReader.getLogin(1));
         authFormPage.enterPasword(testConfReader.getPassword(1));
 
-        mainPage = (MainPage) authFormPage.submit( true );
+        // mainPage = (MainPage) authFormPage.submit( true );
         //authFormPage.submit( true );
 
         mainPage = mainPage.waitUntilLinkTextChanged( oldMessage );

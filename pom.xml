@@ -15,7 +15,10 @@
         <!--Кодировка-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+
         <poi.ooxml.version>4.0.1</poi.ooxml.version>
+        <selenium.version>3.141.59</selenium.version>
+        <testng.version>7.0.0-beta3</testng.version>
 
         <!---тестовые данные -->
         <common.conf>${basedir}/src/main/resources/common.properties</common.conf>
@@ -25,6 +28,12 @@
 
     <!--зависимости-->
     <dependencies>
+        <!--Test Framework-->
+        <dependency>
+            <groupId>com.academy</groupId>
+            <artifactId>taf</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--MySQL--><!--MySql connector-->
         <dependency>
             <groupId>mysql</groupId>
@@ -38,21 +47,19 @@
             <version>${poi.ooxml.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${selenium.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>7.0.0-beta3</version>
+            <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -82,6 +89,5 @@
             </plugin>
         </plugins>
     </build>
-
 
 </project>
